@@ -8,7 +8,8 @@ var logger = require('morgan'); // An HTTP request logger middleware for node
 var mongoose = require('mongoose'); 
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb+srv://Leavv:hX8E@a&}yP2o$;wP7"5_`Q-*@leavvmongodb-asbfi.mongodb.net/LeavvMongoDB?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://Leavv:hX8E@a&}yP2o$;wP7"5_`Q-*@leavvmongodb-asbfi.mongodb.net/LeavvMongoDB?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 //Get the default connection
